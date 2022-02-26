@@ -3,7 +3,7 @@
     "baseUrl": "./src",
     "allowJs": true,
     "target": "es6",
-	"strict": true,
+    "strict": true,
     "lib": [
       "es6"
     ],
@@ -14,12 +14,16 @@
         "../node_modules/*/lib/index",
         "../node_modules/*/index",
         "../node_modules/*/dist/index",
-        "../node_modules/*"
+        "../node_modules/*",
+        "./*"
       ]
     },
     "plugins": [
       {
-        "transform": "war3-transformer"
+        "transform": "war3-transformer",
+        "mapDir": "D:/GitHub/UndeadInvasion/maps/map.w3x",
+        "entryFile": "D:/GitHub/UndeadInvasion/src/main.ts",
+        "outputDir": "D:/GitHub/UndeadInvasion/dist/map.w3x"
       }
     ],
     "types": [
@@ -50,7 +54,7 @@
     "noHeader": true,
     "luaLibImport": "require",
     "noImplicitSelf": true,
-    "luaBundle": "dist/tstl_output.lua",
+    "luaBundle": "../dist/tstl_output.lua",
     "luaBundleEntry": "./src/main.ts"
   }
 }

@@ -1,8 +1,6 @@
 /**
  * Reads primitive types from a packed binary string.
  *
- * @example
- * ```ts
  * // Write the values
  * const writer = new BinaryWriter();
  * writer.writeUInt8(5);
@@ -26,16 +24,20 @@
  * values[5] = reader.readString(); // hello
  * values[6] = reader.readUInt16(); // 45000
  * ```
+ *
+ * @format
+ * @example ```ts
  */
+
 export class BinaryReader {
   public readonly data: string
   private pos: number = 1
 
-  constructor (binaryString: string) {
+  constructor(binaryString: string) {
     this.data = binaryString
   }
 
-  public read (fmt: string, size: number) {
+  public read(fmt: string, size: number) {
     const unpacked = string.unpack(fmt, this.data, this.pos)
     this.pos += size
     if (unpacked.length <= 0) {
@@ -44,41 +46,41 @@ export class BinaryReader {
     return unpacked[0]
   }
 
-  public readDouble (): number {
+  public readDouble(): number {
     return this.read(">d", 4)
   }
 
-  public readFloat (): number {
+  public readFloat(): number {
     return this.read(">f", 4)
   }
 
-  public readInt16 (): number {
+  public readInt16(): number {
     return this.read(">h", 2)
   }
 
-  public readInt32 (): number {
+  public readInt32(): number {
     return this.read(">i4", 4)
   }
 
-  public readInt8 (): number {
+  public readInt8(): number {
     return this.read(">b", 1)
   }
 
-  public readString (): string {
+  public readString(): string {
     const value: string = this.read(">z", 0)
     this.pos += value.length + 1
     return value
   }
 
-  public readUInt16 (): number {
+  public readUInt16(): number {
     return this.read(">H", 2)
   }
 
-  public readUInt32 (): number {
+  public readUInt32(): number {
     return this.read(">I4", 4)
   }
 
-  public readUInt8 (): number {
+  public readUInt8(): number {
     return this.read(">B", 1)
   }
 }

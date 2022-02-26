@@ -3,7 +3,7 @@
  * @noSelfInFile *
  */
 
-import { IFrames } from "app/define/Frames"
+import { IFrames } from "w3ts/globals/frames"
 import { Handle } from "./handle"
 
 /**

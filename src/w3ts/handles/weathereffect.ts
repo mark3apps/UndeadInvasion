@@ -1,10 +1,13 @@
-/** @noSelfInFile **/
+/**
+ * @format
+ * @noSelfInFile *
+ */
 
-import { Handle } from './handle'
-import { Rectangle } from './rect'
+import { Handle } from "./handle"
+import { Rectangle } from "./rect"
 
 export class WeatherEffect extends Handle<weathereffect> {
-	/**
+  /**
    * Adds a weather effect.
    * @param where The rect to apply the WeatherEffect to.
    * @param effectID Which effect to apply.
@@ -13,23 +16,23 @@ export class WeatherEffect extends Handle<weathereffect> {
    * @note To get an idea on how to add your own weather effects, you may read
    * CryoniC's article about custom weather effects: http://www.wc3c.net/showthread.php?t=67949.
    */
-	constructor (where: Rectangle, effectID: number) {
-		if (Handle.initFromHandle()) {
-			super()
-		} else {
-			super(AddWeatherEffect(where.handle, effectID))
-		}
-	}
+  constructor(where: Rectangle, effectID: number) {
+    if (Handle.initFromHandle()) {
+      super()
+    } else {
+      super(AddWeatherEffect(where.handle, effectID))
+    }
+  }
 
-	public destroy () {
-		RemoveWeatherEffect(this.handle)
-	}
+  public destroy() {
+    RemoveWeatherEffect(this.handle)
+  }
 
-	public enable (flag: boolean) {
-		EnableWeatherEffect(this.handle, flag)
-	}
+  public enable(flag: boolean) {
+    EnableWeatherEffect(this.handle, flag)
+  }
 
-	public static fromHandle (handle: weathereffect): WeatherEffect {
-		return this.getObject(handle)
-	}
+  public static fromHandle(handle: weathereffect): WeatherEffect {
+    return this.getObject(handle)
+  }
 }

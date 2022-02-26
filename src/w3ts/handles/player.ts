@@ -3,7 +3,7 @@
  * @noSelfInFile *
  */
 
-import { Position } from "app/classes/position"
+import { Coordinate } from "lib/interfaces/Coordinate"
 import { CameraSetup, Camera } from "./camera"
 import { Force } from "./force"
 import { Handle } from "./handle"
@@ -131,15 +131,15 @@ export class MapPlayer extends Handle<player> {
     return GetPlayerAlliance(this.handle, otherPlayer.handle, whichAllianceSetting)
   }
 
-  public positionFogged(pos: Position) {
+  public positionFogged(pos: Coordinate) {
     return IsFoggedToPlayer(pos.x, pos.y, this.handle)
   }
 
-  public positionMasked(pos: Position) {
+  public positionMasked(pos: Coordinate) {
     return IsMaskedToPlayer(pos.x, pos.y, this.handle)
   }
 
-  public positionVisible(pos: Position) {
+  public positionVisible(pos: Coordinate) {
     return IsVisibleToPlayer(pos.x, pos.y, this.handle)
   }
 

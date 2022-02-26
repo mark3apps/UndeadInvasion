@@ -1,0 +1,46 @@
+{
+  "search.exclude": {
+    "*/dist": true,
+    "*/maps": true
+  },
+  "files.watcherExclude": {
+    "*/maps/**": true
+  },
+  "Lua.diagnostics.globals": ["text", "bj_lastCreatedUnit", "udg_PickedHero"],
+  "editor.codeActionsOnSave": ["source.addMissingImports"],
+  "editor.insertSpaces": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "IndentCaseLabels": true,
+  "cSpell.words": [
+    "abil",
+    "abils",
+    "Arcanite",
+    "Avul",
+    "Azeroth",
+    "Bloodlust",
+    "coor",
+    "DEGTORAD",
+    "Draenei",
+    "Dreadlord",
+    "Dwarven",
+    "Enviro",
+    "Grom",
+    "Hpal",
+    "Invuln",
+    "lerp",
+    "Lich",
+    "lifesteal",
+    "Murloc",
+    "Nerubian",
+    "Pathing",
+    "RADTODEG",
+    "Regen",
+    "Rescuable",
+    "Robo",
+    "strat",
+    "Tauren",
+    "Treant",
+    "Unblight",
+    "xpbar"
+  ]
+}

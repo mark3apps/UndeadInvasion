@@ -1,4 +1,7 @@
-/** @noSelfInFile */
+/**
+ * @format
+ * @noSelfInFile
+ */
 
 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 
@@ -6,7 +9,7 @@ const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=
  * Encode a string to base64.
  * @param input The string to encode.
  */
-export function base64Encode (input: string) {
+export function base64Encode(input: string) {
   let output = ""
   // tslint:disable-next-line:no-conditional-assignment
   for (
@@ -38,7 +41,7 @@ export function base64Encode (input: string) {
  * Decode a base64 string.
  * @param input The base64 string to decode.
  */
-export function base64Decode (input: string) {
+export function base64Decode(input: string) {
   let i = input.length
   for (; i > 0 && input[i] !== "="; i--) {
     /* do nothing */

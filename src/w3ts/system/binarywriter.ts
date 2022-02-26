@@ -1,8 +1,6 @@
 /**
  * Packs primitive types into a binary string.
  *
- * @example
- * ```ts
  * // Write the values
  * const writer = new BinaryWriter();
  * writer.writeUInt8(5);
@@ -26,56 +24,60 @@
  * values[5] = reader.readString(); // hello
  * values[6] = reader.readUInt16(); // 45000
  * ```
+ *
+ * @format
+ * @example ```ts
  */
+
 export class BinaryWriter {
   public readonly values: (string | number)[] = []
   private fmj = ">"
 
-  public toString () {
+  public toString() {
     return string.pack(this.fmj, ...this.values)
   }
 
-  public writeDouble (value: number) {
+  public writeDouble(value: number) {
     this.fmj += "d"
     this.values.push(value)
   }
 
-  public writeFloat (value: number) {
+  public writeFloat(value: number) {
     this.fmj += "f"
     this.values.push(value)
   }
 
-  public writeInt16 (value: number) {
+  public writeInt16(value: number) {
     this.fmj += "h"
     this.values.push(value)
   }
 
-  public writeInt32 (value: number) {
+  public writeInt32(value: number) {
     this.fmj += "i4"
     this.values.push(value)
   }
 
-  public writeInt8 (value: number) {
+  public writeInt8(value: number) {
     this.fmj += "b"
     this.values.push(value)
   }
 
-  public writeString (value: string) {
+  public writeString(value: string) {
     this.fmj += "z"
     this.values.push(value)
   }
 
-  public writeUInt16 (value: number) {
+  public writeUInt16(value: number) {
     this.fmj += "H"
     this.values.push(value)
   }
 
-  public writeUInt32 (value: number) {
+  public writeUInt32(value: number) {
     this.fmj += "I4"
     this.values.push(value)
   }
 
-  public writeUInt8 (value: number) {
+  public writeUInt8(value: number) {
     this.fmj += "B"
     this.values.push(value)
   }

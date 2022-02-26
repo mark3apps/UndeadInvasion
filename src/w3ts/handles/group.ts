@@ -3,7 +3,7 @@
  * @noSelfInFile *
  */
 
-import { Position } from "app/classes/position"
+import { Coordinate } from "lib/interfaces/Coordinate"
 import { Handle } from "./handle"
 import { MapPlayer } from "./player"
 import { Point } from "./point"
@@ -36,7 +36,7 @@ export class Group extends Handle<group> {
     DestroyGroup(this.handle)
   }
 
-  public getClosestUnit(coor: Position): Unit | undefined {
+  public getClosestUnit(coor: Coordinate): Unit | undefined {
     let pickedUnit: Unit | undefined
     let distance = 999999999999
     this.for(() => {
@@ -63,7 +63,7 @@ export class Group extends Handle<group> {
     GroupEnumUnitsInRange(this.handle, x, y, radius, typedFiler)
   }
 
-  public enumUnitsInRange(pos: Unit | Position, radius: number, filter?: boolexpr | (() => boolean)): void {
+  public enumUnitsInRange(pos: Unit | Coordinate, radius: number, filter?: boolexpr | (() => boolean)): void {
     let typedFiler
     if (filter === undefined) {
       typedFiler = null

@@ -1,110 +1,113 @@
-/** @noSelfInFile **/
+/**
+ * @format
+ * @noSelfInFile *
+ */
 
-import { Handle } from './handle'
+import { Handle } from "./handle"
 
 export class QuestItem extends Handle<questitem> {
-	constructor (whichQuest: Quest) {
-		if (Handle.initFromHandle()) {
-			super()
-		} else {
-			super(QuestCreateItem(whichQuest.handle))
-		}
-	}
+  constructor(whichQuest: Quest) {
+    if (Handle.initFromHandle()) {
+      super()
+    } else {
+      super(QuestCreateItem(whichQuest.handle))
+    }
+  }
 
-	public setDescription (description: string) {
-		QuestItemSetDescription(this.handle, description)
-	}
+  public setDescription(description: string) {
+    QuestItemSetDescription(this.handle, description)
+  }
 
-	public get completed () {
-		return IsQuestItemCompleted(this.handle)
-	}
+  public get completed() {
+    return IsQuestItemCompleted(this.handle)
+  }
 
-	public set completed (completed: boolean) {
-		QuestItemSetCompleted(this.handle, completed)
-	}
+  public set completed(completed: boolean) {
+    QuestItemSetCompleted(this.handle, completed)
+  }
 }
 
 export class Quest extends Handle<quest> {
-	/**
+  /**
    * @bug Do not use this in a global initialisation as it crashes the game there.
    */
-	constructor () {
-		super(Handle.initFromHandle() ? undefined : CreateQuest())
-	}
+  constructor() {
+    super(Handle.initFromHandle() ? undefined : CreateQuest())
+  }
 
-	public get completed () {
-		return IsQuestCompleted(this.handle)
-	}
+  public get completed() {
+    return IsQuestCompleted(this.handle)
+  }
 
-	public set completed (completed: boolean) {
-		QuestSetCompleted(this.handle, completed)
-	}
+  public set completed(completed: boolean) {
+    QuestSetCompleted(this.handle, completed)
+  }
 
-	public get discovered () {
-		return IsQuestDiscovered(this.handle)
-	}
+  public get discovered() {
+    return IsQuestDiscovered(this.handle)
+  }
 
-	public set discovered (discovered: boolean) {
-		QuestSetDiscovered(this.handle, discovered)
-	}
+  public set discovered(discovered: boolean) {
+    QuestSetDiscovered(this.handle, discovered)
+  }
 
-	public get enabled () {
-		return IsQuestEnabled(this.handle)
-	}
+  public get enabled() {
+    return IsQuestEnabled(this.handle)
+  }
 
-	public set enabled (enabled: boolean) {
-		QuestSetEnabled(this.handle, enabled)
-	}
+  public set enabled(enabled: boolean) {
+    QuestSetEnabled(this.handle, enabled)
+  }
 
-	public get failed () {
-		return IsQuestFailed(this.handle)
-	}
+  public get failed() {
+    return IsQuestFailed(this.handle)
+  }
 
-	public set failed (failed: boolean) {
-		QuestSetFailed(this.handle, failed)
-	}
+  public set failed(failed: boolean) {
+    QuestSetFailed(this.handle, failed)
+  }
 
-	public get required () {
-		return IsQuestRequired(this.handle)
-	}
+  public get required() {
+    return IsQuestRequired(this.handle)
+  }
 
-	public set required (required: boolean) {
-		QuestSetRequired(this.handle, required)
-	}
+  public set required(required: boolean) {
+    QuestSetRequired(this.handle, required)
+  }
 
-	public addItem (description: string) {
-		const questItem = new QuestItem(this)
+  public addItem(description: string) {
+    const questItem = new QuestItem(this)
 
-		questItem.setDescription(description)
+    questItem.setDescription(description)
 
-		return questItem
-	}
+    return questItem
+  }
 
-	public destroy () {
-		DestroyQuest(this.handle)
-	}
+  public destroy() {
+    DestroyQuest(this.handle)
+  }
 
-	public setDescription (description: string) {
-		QuestSetDescription(this.handle, description)
-	}
+  public setDescription(description: string) {
+    QuestSetDescription(this.handle, description)
+  }
 
-	public setIcon (iconPath: string) {
-		QuestSetIconPath(this.handle, iconPath)
-	}
+  public setIcon(iconPath: string) {
+    QuestSetIconPath(this.handle, iconPath)
+  }
 
-	public setTitle (title: string) {
-		QuestSetTitle(this.handle, title)
-	}
+  public setTitle(title: string) {
+    QuestSetTitle(this.handle, title)
+  }
 
-	public static flashQuestDialogButton () {
-		FlashQuestDialogButton()
-	}
+  public static flashQuestDialogButton() {
+    FlashQuestDialogButton()
+  }
 
-	public static forceQuestDialogUpdate () {
-		ForceQuestDialogUpdate()
-	}
+  public static forceQuestDialogUpdate() {
+    ForceQuestDialogUpdate()
+  }
 
-	public static fromHandle (handle: quest): Quest {
-		return this.getObject(handle)
-	}
+  public static fromHandle(handle: quest): Quest {
+    return this.getObject(handle)
+  }
 }

@@ -3,14 +3,14 @@
  * @noSelfInFile *
  */
 
-import { UnitAbility } from "app/classes"
-import { AbilityType } from "app/classes/abilityType/abilityType"
-import { Coordinate } from "app/classes/Coordinate"
-import { IUnitParam } from "app/classes/hero/interfaces/IUnitParam"
-import { UnitType } from "app/classes/unitType/UnitType"
-import { UnitData } from "app/systems/unitData"
+import { AbilityType } from "lib/classes/abilityType/abilityType"
+import { UnitAbility } from "lib/classes/unitAbility/UnitAbility"
+import { UnitData } from "lib/classes/unitData/unitData"
+import { UnitType } from "lib/classes/unitType/UnitType"
+import { Coordinate } from "lib/interfaces/Coordinate"
+import { IUnitParam } from "lib/interfaces/IUnitParam"
 import { GameConstants } from "lib/resources/GameConstants"
-import { CC2Four, LevelValueFactor, ValueFactor } from "lib/resources/library"
+import { CC2Four, LevelValueFactor } from "lib/resources/library"
 import { OrderType } from "lib/resources/orderType"
 import { PrimaryAttribute } from "../globals/primaryAttribute"
 import { Order, BuffFour, AbilityFour } from "../index"
